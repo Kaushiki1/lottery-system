@@ -30,12 +30,12 @@ public class Main {
         for (i = 1; i< 5; i++)
         {
             System.out.print(" " + i + ": ");
-            guessDigits[i] = scan.nextInt();
+            guessDigits[i-1] = scan.nextInt();
         }
         System.out.println("Guess numbers for lottery");
         System.out.println("--------------------");
         sum = 0;
-        for (i = 1; i<guessDigits.length; i++)
+        for (i = 0; i<guessDigits.length; i++)
         {
             System.out.println("lottery " + i + " number " + guessDigits[i]);
             sum += guessDigits[i];
@@ -49,43 +49,37 @@ public class Main {
             int lotteryDigit4 = lottery / 10;
             int lotteryDigit5 = lottery % 10;
 
-            int guessDigit1 = guess / 10;
-            int guessDigit2 = guess / 10;
-            int guessDigit3 = guess / 10;
-            int guessDigit4 = guess / 10;
-            int guessDigit5 = guess % 10;
-
             System.out.println("The lottery number is " + lottery);
 
 
             if (guess == lottery)
                 System.out.println("Exact match: You win $100,000 :D");
-            else if (guessDigit5 == lotteryDigit1
-                    && guessDigit4 == lotteryDigit2
-                    && guessDigit3 == lotteryDigit3
-                    && guessDigit2 == lotteryDigit4
-                    && guessDigit1 == lotteryDigit5)
+            else if (guessDigits[4] == lotteryDigit1
+                    && guessDigits[3] == lotteryDigit2
+                    && guessDigits[2] == lotteryDigit3
+                    && guessDigits[1] == lotteryDigit4
+                    && guessDigits[0] == lotteryDigit5)
                 System.out.println("Match all the digits: You win $25,000 :)");
-            else if (guessDigit1 == lotteryDigit1
-                    || guessDigit1 == lotteryDigit2
-                    || guessDigit1 == lotteryDigit3
-                    || guessDigit1 == lotteryDigit4
-                    || guessDigit1 == lotteryDigit5
-                    || guessDigit2 == lotteryDigit1
-                    || guessDigit2 == lotteryDigit2
-                    || guessDigit3 == lotteryDigit3
-                    || guessDigit3 == lotteryDigit4
-                    || guessDigit3 == lotteryDigit5
-                    || guessDigit4 == lotteryDigit1
-                    || guessDigit4 == lotteryDigit2
-                    || guessDigit4 == lotteryDigit3
-                    || guessDigit4 == lotteryDigit4
-                    || guessDigit4 == lotteryDigit5
-                    || guessDigit5 == lotteryDigit1
-                    || guessDigit5 == lotteryDigit2
-                    || guessDigit5 == lotteryDigit3
-                    || guessDigit5 == lotteryDigit4
-                    || guessDigit5 == lotteryDigit5)
+            else if (guessDigits[0] == lotteryDigit1
+                || guessDigits[0] == lotteryDigit2
+                || guessDigits[0] == lotteryDigit3
+                || guessDigits[0] == lotteryDigit4
+                || guessDigits[0] == lotteryDigit5
+                || guessDigits[1] == lotteryDigit1
+                || guessDigits[1] == lotteryDigit2
+                || guessDigits[2] == lotteryDigit3
+                || guessDigits[2] == lotteryDigit4
+                || guessDigits[2] == lotteryDigit5
+                || guessDigits[3] == lotteryDigit1
+                || guessDigits[3] == lotteryDigit2
+                || guessDigits[3] == lotteryDigit3
+                || guessDigits[3] == lotteryDigit4
+                || guessDigits[3] == lotteryDigit5
+                || guessDigits[4] == lotteryDigit1
+                || guessDigits[4] == lotteryDigit2
+                || guessDigits[4] == lotteryDigit3
+                || guessDigits[4] == lotteryDigit4
+                || guessDigits[4] == lotteryDigit5)
                 System.out.println("Match one digit: you win $1,000");
             else
                 for (i = 0; i < 3; i++) {
@@ -114,23 +108,6 @@ public class Main {
     }
 }
 
-class lottery {
-    private String number;
-    public lottery(String n){
-        number = n;
-    }
-    public lottery(){
-        number = "unknown";
-    }
-    public void printNumber(){
-        System.out.println(number);
-    }
-}
-class lotteryDigits{
-    public static void main(String[] args){
-        lottery a = new lottery("unknown");
-        lottery b = new lottery();
-        a.printNumber();
-        b.printNumber();
-    }
-}
+
+    
+
