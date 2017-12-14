@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    
+
 
     public static void main(String[] args) {
 
@@ -21,13 +21,20 @@ public class Main {
         String welcome = "";
         System.out.println("Welcome to the Lottery Game, Please enter your name");
         welcome = input.next();
-        System.out.print("Hello " + welcome.toUpperCase() + " Please enter lottery pick (five digits) 0:" );
+        System.out.printf("Hello " + welcome.toUpperCase() + "\n Please enter your age followed by your lottery pick (five digits): " );
         int guess = input.nextInt();
+
+        String print = "You're too young";
+        if (guess<18){
+            System.out.printf("%15s",print);
+            System.exit(0);
+        }
+
 
 
         int sum;
         Scanner scan = new Scanner (System.in);
-        for (i = 1; i< 5; i++)
+        for (i = 1; i< 6; i++)
         {
             System.out.print(" " + i + ": ");
             guessDigits[i-1] = scan.nextInt();
@@ -43,24 +50,24 @@ public class Main {
         System.out.println("\nTotal numbers: " + sum);
 
 
-            int lotteryDigit1 = lottery / 10;
-            int lotteryDigit2 = lottery / 10;
-            int lotteryDigit3 = lottery / 10;
-            int lotteryDigit4 = lottery / 10;
-            int lotteryDigit5 = lottery % 10;
+        int lotteryDigit1 = lottery / 10;
+        int lotteryDigit2 = lottery / 10;
+        int lotteryDigit3 = lottery / 10;
+        int lotteryDigit4 = lottery / 10;
+        int lotteryDigit5 = lottery % 10;
 
-            System.out.println("The lottery number is " + lottery);
+        System.out.println("The lottery number is " + lottery);
 
 
-            if (guess == lottery)
-                System.out.println("Exact match: You win $100,000 :D");
-            else if (guessDigits[4] == lotteryDigit1
-                    && guessDigits[3] == lotteryDigit2
-                    && guessDigits[2] == lotteryDigit3
-                    && guessDigits[1] == lotteryDigit4
-                    && guessDigits[0] == lotteryDigit5)
-                System.out.println("Match all the digits: You win $25,000 :)");
-            else if (guessDigits[0] == lotteryDigit1
+        if (guess == lottery)
+            System.out.println("Exact match: You win $100,000 :D");
+        else if (guessDigits[4] == lotteryDigit1
+                && guessDigits[3] == lotteryDigit2
+                && guessDigits[2] == lotteryDigit3
+                && guessDigits[1] == lotteryDigit4
+                && guessDigits[0] == lotteryDigit5)
+            System.out.println("Match all the digits: You win $25,000 :)");
+        else if (guessDigits[0] == lotteryDigit1
                 || guessDigits[0] == lotteryDigit2
                 || guessDigits[0] == lotteryDigit3
                 || guessDigits[0] == lotteryDigit4
@@ -80,12 +87,12 @@ public class Main {
                 || guessDigits[4] == lotteryDigit3
                 || guessDigits[4] == lotteryDigit4
                 || guessDigits[4] == lotteryDigit5)
-                System.out.println("Match one digit: you win $1,000");
-            else
-                for (i = 0; i < 3; i++) {
-                    System.out.println("Sorry, You lose :(");
-                }
-        }
+            System.out.println("Match one digit: you win $1,000");
+        else
+            for (i = 0; i < 1; i++) {
+                System.out.println("Sorry, You lose :(");
+            }
+    }
 
 
     public static double getAmount(String prompt) {
@@ -97,8 +104,8 @@ public class Main {
     }
 
     public static void main(String prompt){
-         System.out.println(name("IS Lottery"));
-         System.out.println(price(10));
+        System.out.println(name("IS Lottery"));
+        System.out.println(price(10));
     }
     public static String name(String name){
         return ("Name of this lottery is: " + name);
@@ -107,7 +114,3 @@ public class Main {
         return ("Price of the ticket is: " + "$" + price);
     }
 }
-
-
-    
-
